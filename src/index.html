@@ -1,14 +1,66 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<!DOCTYPe html>
+<html lang="es">
+
+<head>
     <meta charset="utf-8">
-    <title>Tarjeta de crédito válida</title>
+    <meta name="viewport" content="width=device-width">
+    <title>Secure Pay</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="index.js" type="module"></script>
-  </body>
+</head>
+
+<body>
+    <header>
+        <h1>Secure Pay</h1>
+    </header>
+    <main>
+        <section id="formulario">
+            <form form action="" class="form" id="form">
+                <label for="name" class="formLabel">Nombre</label>
+                <input type="text" class="formulario__input" name="name" id="name" required placeholder="Nombre">
+
+                <label for="lastname" class="formLabel">Apellido</label>
+                <input type="text" class="formulario__input" name="lastname" id="lastname" required placeholder="Apellido">
+
+                <label for="card" class="formLabel">Numero de tarjeta</label>
+                <input type="text" class="formulario__input" name="card" id="card" maxlength="18" required placeholder="XXXX XXXX XXXX XXXX">
+
+                <label for="date" class="formLabel">Fecha de vencimiento</label>
+                <input type="text" class="formulario__input" name="date" id="date" maxlength="4" required placeholder="(MM/AA)">
+
+                <label for="cvv" class="formLabel">Codigo de seguridad</label>
+                <input type="text" class="formulario__input" name="cvv" id="cvv" maxlength="3" required placeholder="(CVV)">
+
+                <button type="button" class="formButton" id="send">enviar</button>
+            </form>
+        </section>
+
+        <!--Pantalla 2- Tarjeta validada-->
+        <section id="validCard">
+            <p id="text"></p>
+            <p id="text1"></p>
+            <br>
+            <button type="button" class="formButton" id="buy">Comprar</button>
+            <button type="button" class="formButton" id="back">Regresar</button>
+        </section>
+
+        <!--Pantalla 3- Tarjeta invalida-->
+        <section id="rejectedCard">
+            <p id="texto2"></p>
+            <p id="texto3"></p>
+
+        </section>
+
+        <!--Pantalla 4- Compra exitosa-->
+        <section id="successful">
+            <div>
+                <p class="thanks">Tu compra ha sido realizada con éxito</p><br>
+                <p class="comeBack">¡Vuelva pronto!</p>
+            </div>
+        </section>
+    </main>
+    <footer>Lima - 2021</footer>
+    <script type="module" src="index.js"></script>
+</body>
+
 </html>

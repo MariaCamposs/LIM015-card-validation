@@ -1,0 +1,11 @@
+#validCard {
+    display: none;
+}
+
+#rejectedCard {
+    display: none;
+}
+
+#successful {
+    display: none;
+}
