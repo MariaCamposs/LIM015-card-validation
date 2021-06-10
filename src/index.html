@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width">
     <title>Secure Pay</title>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Jost&family=Nunito&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,46 +17,81 @@
         <h1>Secure Pay</h1>
     </header>
     <main>
-        <section id="formulario">
-            <form form action="" class="form" id="form">
-                <label for="name" class="formLabel">Nombre</label>
-                <input type="text" class="formulario__input" name="name" id="name" required placeholder="Nombre">
+        <section id="form">
+            <form form action="" class="formulario" id="formulario">
+                <div class="formulario__group" id="group__name">
+                    <label for="name" class="formLabel">Nombre</label>
+                    <div class="formulario__group-input">
+                        <input type="text" class="formulario__input" name="name" id="name" required placeholder="Nombre">
+                        <i class="formulario__validacion-estado fas fa-times-circle "> </i>
+                    </div>
+                    <p class="formulario__input-error"> El nombre solo puede contener letras. </p>
+                </div>
 
-                <label for="lastname" class="formLabel">Apellido</label>
-                <input type="text" class="formulario__input" name="lastname" id="lastname" required placeholder="Apellido">
+                <div class="formulario__group" id="group__lastname">
+                    <label for="lastname" class="formLabel">Apellido</label>
+                    <div class="formulario__group-input">
+                        <input type="text" class="formulario__input" name="lastname" id="lastname" required placeholder="Apellido">
+                        <i class="formulario__validacion-estado fas fa-times-circle "> </i>
+                    </div>
+                    <p class="formulario__input-error"> El apellido solo puede contener letras. </p>
+                </div>
 
-                <label for="card" class="formLabel">Numero de tarjeta</label>
-                <input type="text" class="formulario__input" name="card" id="card" maxlength="18" required placeholder="XXXX XXXX XXXX XXXX">
+                <div class="formulario__group block" id="group__card">
+                    <label for="card" class="formLabel">Numero de tarjeta</label>
+                    <div class="formulario__group-input">
+                        <input type="text" class="formulario__input" name="card" id="card" minlength="13" maxlength="18" required placeholder="XXXX XXXX XXXX XXXX">
+                        <i class="formulario__validacion-estado fas fa-times-circle "> </i>
+                    </div>
+                    <p class="formulario__input-error"> La tarjeta debe contener de 13 a 18 números. </p>
 
-                <label for="date" class="formLabel">Fecha de vencimiento</label>
-                <input type="text" class="formulario__input" name="date" id="date" maxlength="4" required placeholder="(MM/AA)">
+                </div>
 
-                <label for="cvv" class="formLabel">Codigo de seguridad</label>
-                <input type="text" class="formulario__input" name="cvv" id="cvv" maxlength="3" required placeholder="(CVV)">
+                <div class="formulario__group" id="group__date">
+                    <label for="date" class="formLabel">Fecha de vencimiento</label>
+                    <div class="formulario__group-input input-date">
+                        <input type="text" class="formulario__input" name="date" id="date" maxlength="4" required placeholder="(MM/AA)"> <br>
+                        <i class="formulario__validacion-estado fas fa-times-circle "> </i>
+                    </div>
+                    <p class="formulario__input-error"> La fecha debe contener 4 números</p>
+                </div>
 
-                <button type="button" class="formButton" id="send">enviar</button>
+                <div class="formulario__group" id="group__cvv">
+                    <label for="cvv" class="formLabel">Codigo de seguridad</label>
+                    <div class="formulario__group-input">
+                        <input type="text" class="formulario__input" name="cvv" id="cvv" maxlength="3" required placeholder="(CVV)">
+                        <i class="formulario__validacion-estado fas fa-times-circle "> </i>
+                    </div>
+                    <p class="formulario__input-error"> El cvv debe contener 3 números. </p>
+                </div>
+
+                <div class="formulario__group formulario__group-btn-send block">
+                    <button type="button" class="formButton" id="send">ENVIAR</button>
+                </div>
             </form>
         </section>
 
         <!--Pantalla 2- Tarjeta validada-->
         <section id="validCard">
-            <p id="text"></p>
-            <p id="text1"></p>
-            <br>
-            <button type="button" class="formButton" id="buy">Comprar</button>
-            <button type="button" class="formButton" id="back">Regresar</button>
+            <div class="formulario__group formulario__group-validCard">
+                <p class="valid" id="text"></p>
+                <p class="valid" id="text1"></p>
+                <button type="button" class="formButton" id="buy">COMPRAR</button>
+                <button type="button" class="formButton" id="back">REGRESAR</button>
+            </div>
         </section>
 
         <!--Pantalla 3- Tarjeta invalida-->
         <section id="rejectedCard">
-            <p id="texto2"></p>
-            <p id="texto3"></p>
-
+            <div class="formulario__group formulario__group-rejectedCard">
+                <p class="invalid" id="texto2"></p>
+                <p class="invalid" id="texto3"></p>
+            </div>
         </section>
 
         <!--Pantalla 4- Compra exitosa-->
-        <section id="successful">
-            <div>
+        <section id="successfull">
+            <div class="formulario__group formulario__group-successfull">
                 <p class="thanks">Tu compra ha sido realizada con éxito</p><br>
                 <p class="comeBack">¡Vuelva pronto!</p>
             </div>
@@ -61,6 +99,8 @@
     </main>
     <footer>Lima - 2021</footer>
     <script type="module" src="index.js"></script>
+    <script src=" https://kit.fontawesome.com/2c36e9b7b1.js " crossorigin=" anonymous ">
+    </script>
 </body>
 
 </html>

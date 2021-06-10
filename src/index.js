@@ -1,23 +1,84 @@
 import validator from './validator.js';
-/*
-const inputs = document.querySelectorAll('#form input');
+
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll("input");
+
 
 const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
     lastname: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    card: /([0-9]){13,17}$/, // 13 a 15 digitos.
+    card: /([0-9]){13,17}$/, // 13 a 18 digitos.
     date: /([0-9]){4}$/, //4 numeros
     cvv: /([0-9]){3}$/ // 7 a 14 numeros.
-}*/
+}
+
+const campos = {
+    name: false,
+    lastname: false,
+    card: false,
+    date: false,
+    cvv: false
+}
+
+const validarFormulario = (e) => {
+    switch (e.target.name) {
+        case "name":
+            validarCampo(expresiones.name, e.target, 'name');
+            break;
+
+        case "lastname":
+            validarCampo(expresiones.lastname, e.target, 'lastname');
+            break;
+
+        case "card":
+            validarCampo(expresiones.card, e.target, 'card');
+            break;
+
+        case "date":
+            validarCampo(expresiones.date, e.target, 'date');
+            break;
+
+        case "cvv":
+            validarCampo(expresiones.cvv, e.target, 'cvv');
+            break;
+    }
+}
+
+const validarCampo = (expresion, input, campo) => {
+    if (expresion.test(input.value)) {
+        document.getElementById(`group__${campo}`).classList.remove('formulario__group-incorrect');
+        document.getElementById(`group__${campo}`).classList.add('formulario__group-correct');
+        document.querySelector(`#group__${campo} i`).classList.add('fa-check-circle');
+        document.querySelector(`#group__${campo} i`).classList.remove('fa-times-circle');
+        document.querySelector(`#group__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+        campos[campo] = true;
+    } else {
+        document.getElementById(`group__${campo}`).classList.add('formulario__group-incorrect');
+        document.getElementById(`group__${campo}`).classList.remove('formulario__group-correct');
+        document.querySelector(`#group__${campo} i`).classList.add('fa-times-circle');
+        document.querySelector(`#group__${campo} i`).classList.remove('fa-check-circle');
+        document.querySelector(`#group__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+        campos[campo] = false;
+    }
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
+});
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
 
 document.getElementById("send").addEventListener("click", () => {
     let card = document.getElementById('card').value;
-
-    if (validator.isValid(card)) {
+    if (card === '' || card == null) {
+        alert('Introduzca el numero de la tarjeta')
+        return false;
+    } else if (validator.isValid(card)) {
         let valid = document.getElementById("text1");
         valid.innerHTML = 'La tarjeta es valida'
-    } else if (card === '') {
-        alert('Introduzca el numero de la tarjeta')
     } else {
         let error = document.getElementById('text1');
         error.innerHTML = 'La tarjeta es invalida'
@@ -27,25 +88,31 @@ document.getElementById("send").addEventListener("click", () => {
         valid.innerHTML = `${validator.maskify(card)}`
     }
 
-    if (validator.isValid(card)) {
-        document.getElementById("back").style.display = 'none';
-        document.getElementById("buy").style.display = 'block';
-    } else {
+    if (validator.isValid(card) == false) {
         document.getElementById("back").style.display = 'block';
         document.getElementById("buy").style.display = 'none';
+    } else {
+        document.getElementById("back").style.display = 'none';
+        document.getElementById("buy").style.display = 'block';
     }
-    document.getElementById("formulario").style.display = 'none';
+    document.getElementById("form").style.display = 'none';
     document.getElementById("validCard").style.display = 'block';
 })
 
 document.getElementById("back").addEventListener("click", () => {
-    document.getElementById("formulario").style.display = 'block';
+    document.getElementById("form").style.display = 'block';
     document.getElementById("validCard").style.display = 'none';
-    document.getElementById("form").reset();
+    document.getElementById("formulario").reset();
+    if (campos.name && campos.lastname && campos.card && campos.date && campos.cvv) {
+        document.querySelectorAll('.formulario__group-correct').forEach((icono) => {
+            icono.classList.remove('formulario__group-correct');
+        });
+
+    }
 })
 
 document.getElementById("buy").addEventListener("click", () => {
-    document.getElementById("successful").style.display = 'block';
+    document.getElementById("successfull").style.display = 'block';
     document.getElementById("formulario").style.display = 'none';
     document.getElementById("validCard").style.display = 'none';
 })
