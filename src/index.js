@@ -5,18 +5,20 @@ const inputs = document.querySelectorAll("input");
 
 
 const expresiones = {
-    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
+    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras
     lastname: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     card: /([0-9]){13,17}$/, // 13 a 18 digitos.
-    date: /([0-9]){4}$/, //4 numeros
-    cvv: /([0-9]){3}$/ // 7 a 14 numeros.
+    month: /([0-9]){2}$/, //2 numeros
+    year: /([0-9]){2}$/, //2 numeros
+    cvv: /([0-9]){3}$/ // 3 numeros.
 }
 
 const campos = {
     name: false,
     lastname: false,
     card: false,
-    date: false,
+    month: false,
+    year: false,
     cvv: false
 }
 
@@ -34,8 +36,12 @@ const validarFormulario = (e) => {
             validarCampo(expresiones.card, e.target, 'card');
             break;
 
-        case "date":
-            validarCampo(expresiones.date, e.target, 'date');
+        case "month":
+            validarCampo(expresiones.month, e.target, 'month');
+            break;
+
+        case "year":
+            validarCampo(expresiones.year, e.target, 'year');
             break;
 
         case "cvv":
@@ -73,16 +79,16 @@ formulario.addEventListener('submit', (e) => {
 
 document.getElementById("send").addEventListener("click", () => {
     let card = document.getElementById('card').value;
+    //validando tarjeta
+    let valid = document.getElementById("text1");
+    (validator.isValid(card) ? (valid.innerHTML = "La tarjeta es valida") :
+        (valid.innerHTML = "La tarjeta es invalida"));
+
     if (card === '' || card == null) {
         alert('Introduzca el numero de la tarjeta')
         return false;
-    } else if (validator.isValid(card)) {
-        let valid = document.getElementById("text1");
-        valid.innerHTML = 'La tarjeta es valida'
-    } else {
-        let error = document.getElementById('text1');
-        error.innerHTML = 'La tarjeta es invalida'
     }
+    //enmascarando tarjeta
     if (validator.maskify(card)) {
         let valid = document.getElementById('text');
         valid.innerHTML = `${validator.maskify(card)}`

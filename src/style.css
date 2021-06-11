@@ -18,6 +18,10 @@ header {
     font-size: 20px;
 }
 
+h1 {
+    font-family: 'PT Sans', sans-serif;
+}
+
 footer {
     padding: 10px;
     background: #006db3;
@@ -31,11 +35,11 @@ footer {
     left: 0;
 }
 
-main {
+body {
     background: #e5e5e5;
     height: 100%;
-    padding: 30px;
-    padding-bottom: 50px;
+    padding: 0;
+    margin: 0;
 }
 
 .formulario {
@@ -48,8 +52,34 @@ main {
     grid-template-columns: 1fr 1fr;
 }
 
+.formulario .one {
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.formulario .three {
+    grid-column: 1/4;
+    grid-row: 2;
+}
+
+.formulario .four {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.formulario .five {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.formulario .six {
+    grid-column: 3;
+    grid-row: 3;
+}
+
 .formulario .block {
-    grid-column: 1 / 3;
+    grid-column: 1/4;
+    grid-row: 4;
 }
 
 .formLabel {
@@ -120,7 +150,7 @@ p.formulario__input-error-activo {
     border-radius: 3px;
     cursor: pointer;
     transition: .1s ease all;
-    transform: translateX(50%)
+    transform: translateX(50%);
 }
 
 .formButton:hover {

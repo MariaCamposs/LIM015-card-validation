@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Jost&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -19,25 +21,25 @@
     <main>
         <section id="form">
             <form form action="" class="formulario" id="formulario">
-                <div class="formulario__group" id="group__name">
+                <div class="formulario__group one" id="group__name">
                     <label for="name" class="formLabel">Nombre</label>
                     <div class="formulario__group-input">
-                        <input type="text" class="formulario__input" name="name" id="name" required placeholder="Nombre">
+                        <input type="text" class="formulario__input" name="name" id="name" required placeholder="Julia">
                         <i class="formulario__validacion-estado fas fa-times-circle "> </i>
                     </div>
                     <p class="formulario__input-error"> El nombre solo puede contener letras. </p>
                 </div>
 
-                <div class="formulario__group" id="group__lastname">
+                <div class="formulario__group two" id="group__lastname">
                     <label for="lastname" class="formLabel">Apellido</label>
                     <div class="formulario__group-input">
-                        <input type="text" class="formulario__input" name="lastname" id="lastname" required placeholder="Apellido">
+                        <input type="text" class="formulario__input" name="lastname" id="lastname" required placeholder="Ramirez">
                         <i class="formulario__validacion-estado fas fa-times-circle "> </i>
                     </div>
                     <p class="formulario__input-error"> El apellido solo puede contener letras. </p>
                 </div>
 
-                <div class="formulario__group block" id="group__card">
+                <div class="formulario__group three" id="group__card">
                     <label for="card" class="formLabel">Numero de tarjeta</label>
                     <div class="formulario__group-input">
                         <input type="text" class="formulario__input" name="card" id="card" minlength="13" maxlength="18" required placeholder="XXXX XXXX XXXX XXXX">
@@ -47,26 +49,35 @@
 
                 </div>
 
-                <div class="formulario__group" id="group__date">
-                    <label for="date" class="formLabel">Fecha de vencimiento</label>
-                    <div class="formulario__group-input input-date">
-                        <input type="text" class="formulario__input" name="date" id="date" maxlength="4" required placeholder="(MM/AA)"> <br>
+                <div class="formulario__group four" id="group__month">
+                    <label for="month" class="formLabel">Mes</label>
+                    <div class="formulario__group-input">
+                        <input type="text" class="formulario__input" name="month" id="month" minlength="1" maxlength="2" required placeholder="MM">
                         <i class="formulario__validacion-estado fas fa-times-circle "> </i>
                     </div>
-                    <p class="formulario__input-error"> La fecha debe contener 4 números</p>
+                    <p class="formulario__input-error">El mes debe contener como máximo 2 números</p>
                 </div>
 
-                <div class="formulario__group" id="group__cvv">
-                    <label for="cvv" class="formLabel">Codigo de seguridad</label>
+                <div class="formulario__group five" id="group__year">
+                    <label for="year" class="formLabel">Año</label>
                     <div class="formulario__group-input">
-                        <input type="text" class="formulario__input" name="cvv" id="cvv" maxlength="3" required placeholder="(CVV)">
+                        <input type="text" class="formulario__input" name="year" id="year" maxlength="2" required placeholder="AA">
+                        <i class="formulario__validacion-estado fas fa-times-circle "> </i>
+                    </div>
+                    <p class="formulario__input-error">El año debe contener 2 números</p>
+                </div>
+
+                <div class="formulario__group six" id="group__cvv">
+                    <label for="cvv" class="formLabel">CVV</label>
+                    <div class="formulario__group-input">
+                        <input type="text" class="formulario__input" name="cvv" id="cvv" maxlength="3" required placeholder="123">
                         <i class="formulario__validacion-estado fas fa-times-circle "> </i>
                     </div>
                     <p class="formulario__input-error"> El cvv debe contener 3 números. </p>
                 </div>
 
                 <div class="formulario__group formulario__group-btn-send block">
-                    <button type="button" class="formButton" id="send">ENVIAR</button>
+                    <button type="button" class="formButton" id="send">Enviar</button>
                 </div>
             </form>
         </section>
@@ -76,8 +87,8 @@
             <div class="formulario__group formulario__group-validCard">
                 <p class="valid" id="text"></p>
                 <p class="valid" id="text1"></p>
-                <button type="button" class="formButton" id="buy">COMPRAR</button>
-                <button type="button" class="formButton" id="back">REGRESAR</button>
+                <button type="button" class="formButton" id="buy">Comprar</button>
+                <button type="button" class="formButton" id="back">Regresar</button>
             </div>
         </section>
 
