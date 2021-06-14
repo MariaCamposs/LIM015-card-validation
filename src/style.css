@@ -41,7 +41,7 @@ footer {
     font-size: 15px;
     width: 97.8%;
     height: 20px;
-    position: absolute;
+    position: relative;
     margin-bottom: 0;
     bottom: 0;
     left: 0;
@@ -97,12 +97,13 @@ main {
 }
 
 .six {
-    width: 205px
+    width: 200px
 }
 
 .seven {
     align-content: center;
     transform: translate(140%);
+    margin-bottom: 15%;
 }
 
 .formLabel {
@@ -273,7 +274,7 @@ p.formulario__input-error-activo {
         margin-right: 50px;
     }
     footer {
-        position: absolute;
+        position: relative;
     }
 }
 
@@ -300,6 +301,35 @@ p.formulario__input-error-activo {
         margin-right: 50px;
     }
     footer {
-        position: absolute;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .formulario {
+        width: 300px;
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-bottom: 10%;
+    }
+    .four {
+        width: 80px;
+    }
+    .five {
+        width: 80px;
+    }
+    .six {
+        width: 95px;
+    }
+    .seven {
+        transform: translate(-15%);
+    }
+    .formButton {
+        margin-left: 150px;
+        margin-right: 50px;
+    }
+    footer {
+        width: 92%;
+        position: relative;
     }
 }
