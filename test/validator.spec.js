@@ -77,7 +77,7 @@ describe('validator', () => {
 
         it('Debería retornar "american express" para "3418420076302072"', () => {
             // escribe aquí tu test
-            expect(validator.getIssuer("3418420076302072")).toBe('american express');
+            expect(validator.getIssuer("3418420076302072")).toBe('americanexpress');
 
         });
     });

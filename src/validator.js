@@ -46,7 +46,7 @@ const validator = {
         } else if (digits == "5") {
             issuer = "mastercard";
         } else if (digits == "3") {
-            issuer = "american express"
+            issuer = "americanexpress"
         }
         return issuer;
     }

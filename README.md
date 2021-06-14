@@ -12,7 +12,7 @@
 
 Secure Pay es una pasarela de pago donde el usuario podrá terminar su compra al validar sus datos, principalmente el numero de la tarjeta que es validado mediante el algoritmo de luhn.
 
-![Proyecto final](proyecto.png)
+![Proyecto final](prototipos/proyecto.png)
 
 ***
 
@@ -22,12 +22,12 @@ Los usuarios de Secure Pay son clientes de una tienda online que decidió agrega
 Secure Pay brinda la seguridad tanto para la tienda como para el usuario, al validar las tarjetas con el algoritmo de luhn evitamos fraude, y por otro lado la interfaz es intuitiva para el usuario.
 
 ### Primer prototipo
-![Prototipado en papel](img/prototipo-inicial.jpg)
+![Prototipado en papel](prototipos/prototipo-inicial.jpg)
 
 Decidí mejorar el formulario dividiendo la fecha de vencimiento de la tarjeta en mes y año, a la vez agregar alertas cuando los caracteres ingresados sean distintos a lo que se pide. También se agregaron tres pantallas, una que permita regresar al formulario en caso de que la tarjeta sea inválida, la siguiente pantallla cuando sea válida y muestre la tarjeta enmascarada, la franquicia y un botón para terminar con la compra, la última pantalla es un mensaje de compra exitosa.
 
 ### Prototipo final
-![Prototipado en figma](img/prototipo-final.png)
+![Prototipado en figma](prototipos/prototipo-final.png)
 
 ***
 
