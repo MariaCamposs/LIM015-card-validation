@@ -40,13 +40,13 @@ const validator = {
     },
     getIssuer: function(creditCardNumber) {
         let issuer = "";
-        let digits = creditCardNumber.substring(0, 2);
-        if (digits == "45") {
+        let digits = creditCardNumber.charAt(0);
+        if (digits == "4") {
             issuer = "visa";
-        } else if (digits == "51" || digits == "55") {
+        } else if (digits == "5") {
             issuer = "mastercard";
-        } else if (digits == "34" || digits == "37") {
-            issuer = "americanexpress"
+        } else if (digits == "3") {
+            issuer = "american express"
         }
         return issuer;
     }

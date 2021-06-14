@@ -63,7 +63,7 @@ describe('validator', () => {
 
         });
 
-        it('Debería retornar "visa" para "4557880546281142"', () => {
+        it('Debería retornar "" para "1117880546281142"', () => {
             // escribe aquí tu test
             expect(validator.getIssuer("1117880546281142")).toBe('');
 

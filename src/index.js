@@ -84,18 +84,30 @@ document.getElementById("send").addEventListener("click", () => {
     validator.isValid(card) ? (valid.innerHTML = "La tarjeta es valida") :
         (valid.innerHTML = "La tarjeta es invalida");
 
+    //insertando imagen tarjeta rechazada
+    if (validator.isValid(card) == false) {
+        document.getElementById("img").style.display = 'none';
+        let img = document.createElement("img");
+        img.src = 'img/rejected.png';
+        img.classList.add("img-rejected");
+        document.getElementById("img-rejected").appendChild(img);
+    } else {
+        document.getElementById("img").style.display = 'block';
+        document.getElementById("img-rejected").style.display = 'none';
+    }
+
     if (card === '' || card == null) {
         alert('Introduzca el numero de la tarjeta')
         return false;
     }
+
     //enmascarando tarjeta
     if (validator.maskify(card)) {
         let valid = document.getElementById('text');
         valid.innerHTML = `${validator.maskify(card)}`
     }
+
     //mostrando tipo de tarjeta
-
-
     if (validator.isValid(card)) {
         if (validator.getIssuer(card)) {
             // crea un nuevo div
