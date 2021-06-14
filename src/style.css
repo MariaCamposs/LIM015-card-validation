@@ -305,9 +305,9 @@ p.formulario__input-error-activo {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 300px) and (max-width: 500px) {
     .formulario {
-        width: 250px;
+        width: 300px;
         margin-left: 0%;
         margin-right: 0%;
         margin-bottom: 10%;
