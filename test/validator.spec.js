@@ -51,4 +51,34 @@ describe('validator', () => {
 
         });
     });
+
+    describe('validator.getIssuer', () => {
+        it('debería ser una función', () => {
+            expect(typeof validator.getIssuer).toBe('function');
+        });
+
+        it('Debería retornar "visa" para "4557880546281142"', () => {
+            // escribe aquí tu test
+            expect(validator.getIssuer("4557880546281142")).toBe('visa');
+
+        });
+
+        it('Debería retornar "visa" para "4557880546281142"', () => {
+            // escribe aquí tu test
+            expect(validator.getIssuer("1117880546281142")).toBe('');
+
+        });
+
+        it('Debería retornar "mastercard" para "5118420076302072"', () => {
+            // escribe aquí tu test
+            expect(validator.getIssuer("5118420076302072")).toBe('mastercard');
+
+        });
+
+        it('Debería retornar "american express" para "3418420076302072"', () => {
+            // escribe aquí tu test
+            expect(validator.getIssuer("3418420076302072")).toBe('american express');
+
+        });
+    });
 });

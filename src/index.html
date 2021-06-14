@@ -19,7 +19,8 @@
         <h1>Secure Pay</h1>
     </header>
     <main>
-        <section id="form">
+        <section id="form" class="form">
+            <h4>Complete sus datos para continuar con la compra:</h4>
             <form form action="" class="formulario" id="formulario">
                 <div class="formulario__group one" id="group__name">
                     <label for="name" class="formLabel">Nombre</label>
@@ -87,6 +88,7 @@
             <div class="formulario__group formulario__group-validCard">
                 <p class="valid" id="text"></p>
                 <p class="valid" id="text1"></p>
+                <p class="valid" id="text2"></p>
                 <button type="button" class="formButton" id="buy">Comprar</button>
                 <button type="button" class="formButton" id="back">Regresar</button>
             </div>
@@ -103,8 +105,9 @@
         <!--Pantalla 4- Compra exitosa-->
         <section id="successfull">
             <div class="formulario__group formulario__group-successfull">
-                <p class="thanks">Tu compra ha sido realizada con éxito</p><br>
-                <p class="comeBack">¡Vuelva pronto!</p>
+                <img src="img/successfull.png" class="successfull">
+                <p>Tu compra ha sido realizada con éxito</p><br>
+                <p>¡Vuelve pronto!</p>
             </div>
         </section>
     </main>

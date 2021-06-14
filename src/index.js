@@ -81,8 +81,8 @@ document.getElementById("send").addEventListener("click", () => {
     let card = document.getElementById('card').value;
     //validando tarjeta
     let valid = document.getElementById("text1");
-    (validator.isValid(card) ? (valid.innerHTML = "La tarjeta es valida") :
-        (valid.innerHTML = "La tarjeta es invalida"));
+    validator.isValid(card) ? (valid.innerHTML = "La tarjeta es valida") :
+        (valid.innerHTML = "La tarjeta es invalida");
 
     if (card === '' || card == null) {
         alert('Introduzca el numero de la tarjeta')
@@ -92,6 +92,21 @@ document.getElementById("send").addEventListener("click", () => {
     if (validator.maskify(card)) {
         let valid = document.getElementById('text');
         valid.innerHTML = `${validator.maskify(card)}`
+    }
+    //mostrando tipo de tarjeta
+
+
+    if (validator.isValid(card)) {
+        if (validator.getIssuer(card)) {
+            // crea un nuevo div
+            // y añade contenido
+            let newi = document.createElement("i");
+            let img = document.createElement("img");
+            img.src = (`img/${validator.getIssuer(card)}.png`);
+            img.classList.add("img-card");
+            newi.appendChild(img);
+            document.getElementById("text").appendChild(newi);
+        }
     }
 
     if (validator.isValid(card) == false) {

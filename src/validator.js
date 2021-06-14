@@ -25,11 +25,8 @@ const validator = {
         } else {
             return false;
         }
-    }
-
+    },
     // Enmascarar números de tarjeta
-
-    ,
     maskify: function(creditCardNumber) {
         let show = "";
         for (let i = 0; i < creditCardNumber.length; i++) {
@@ -41,6 +38,18 @@ const validator = {
         }
         return show;
     },
+    getIssuer: function(creditCardNumber) {
+        let issuer = "";
+        let digits = creditCardNumber.substring(0, 2);
+        if (digits == "45") {
+            issuer = "visa";
+        } else if (digits == "51" || digits == "55") {
+            issuer = "mastercard";
+        } else if (digits == "34" || digits == "37") {
+            issuer = "americanexpress"
+        }
+        return issuer;
+    }
 };
 
 export default validator;
